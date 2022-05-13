@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html data-generated-by="stalefish@0.0.7"
+  class="no-js lb-breakpoints lb-font--no-crop"
+  lang="en"
+  locale="en_ke"
+  dir="ltr"
+  theme="light"
+  data-page-name=""
+  lb-auto-init="YTCPage"
+>
+  <head>
+    <meta charset="UTF-8" />
+
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/you.css') }}" type="text/css" media="all">
+
+      
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css" media="all">
+    
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" media="all">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+
+  
+
+  
+
+
+   <!--  -->
+    
+
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover"
+    />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+     {% if title %}
+        <title>Newton - {{ title }}</title>
+    {% else %}
+        <title>Newton Blog</title>
+    {% endif %}
+
+{{ moment.include_jquery() }}
+{{ moment.include_moment() }}
+  
+  </head>
+  <body style="height: 100vh;">
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+    {{ message }}
+    </div>
+    {% endfor %}
+
+
+    {% endif %}
+
+    {% endwith %}
+
+
+
+
+
+
+
+
+<!-- 
+
+      <div class="alert alert-danger ">
+
+      ORDER WITHIN <span id="demo" style="font-size:15px;">    </span> TO GET NOTHING 
+
+    </div>
+ -->
+
+
+    <!-- preloader -->
+
+{% if current_user.is_authenticated %}  
+<div id="outer">
+  <div id="inner">
+    <div id="loader-wrapper">
+
+        <div class="loader-img">
+            <img style="border-radius: 100%; width: 70px;border: 3px solid #355e3b;padding: 2px" src="{{ image_file }}" alt="preloader">
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+</div>
+</div>
+ {% else %}
+
+ <div id="outer">
+  <div id="inner">
+    <div id="loader-wrapper">
+        <div class="loader-img"><img style="border-radius: 70%; width: 100px;border: 3px solid #355e3b;padding: 2px" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="preloader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+</div>
+</div>
+
+{% endif %}
+
+
+
+
+
+ 
+
+    <!-- header section -->
+    <section style="display: block;" class="header-wrapper style-one">
+
+     
+
+        <div class="container">
+            <div class="row">
+
+
+          
+                <div class="col-lg-2 col-md-12 text-left">
+
+  
+
+
+                       
+                 {% if current_user.is_authenticated %}
+
+                <div class="col-lg-2 col-md-12 text-left">
+                  
+                    <a href="{{ url_for('main.home') }}" class="logo">
+                        <img style="border-radius: 100% !important; width: 50px !important;border: 2px solid #355e3b;padding: 2px" src="{{ image_file }}" alt="logo"></a>
+                    <a href="#" class="menu-click"><span></span><span></span><span></span></a>
+       
+                </div>
+                 {% else %}
+
+
+                <div class="col-lg-2 col-md-12 text-left">
+                  
+                    <a href="{{ url_for('main.home') }}" class="logo">
+                        <img style="border-radius: 100% !important; width: 50px !important;border: 2px solid #355e3b;padding: 2px" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="logo"></a>
+                    <a href="#" class="menu-click"><span></span><span></span><span></span></a>
+       
+                </div>
+
+
+
+                 {% endif %}
+
+              
+              
+
+                </div>
+ 
+                
+
+                <div  class="col-lg-8 col-md-12">
+                    <nav  id="main-menu" class="text-center">
+
+                        {% if current_user.is_authenticated %}
+                        <ul>
+
+                           
+                            <li><a href="{{ url_for('users.account') }}">Account</a></li>
+
+                       
+
+                            <li><a href="{{ url_for('posts.new_post') }}">New Post</a></li>
+                            <li><a href="{{ url_for('users.logout') }}">sign-out</a></li>
+
+                           <!--  <li><a href="">Comment Section</a></li>
+
+                            <li><a href="">Members Section</a></li>
+
+                            <li><a href="">Playlist Section</a></li>
+
+                            <li><a href="">Thumbnails Section</a></li>
+
+                            <li><a href="">Video Abuse Report Reasons</a></li>
+
+                            <li><a href=""> Video Categories </a></li> -->
+
+                        
+                     
+                        </ul>
+                          {% else %}
+                           <ul>
+
+                           
+                            <!-- <li><a href="{{ url_for('main.home') }}">Home / Nyumbani</a></li> -->
+                            <li><a href="{{ url_for('users.login') }}">sign-in</a></li>
+                        </ul>
+                           {% endif %}
+
+                    </nav>
+                </div>
+                <div class="col-lg-2 col-md-4 text-right">
+                    <a href="#" class="search-icon"><img src="{{ url_for('static', filename='img/search.png') }}" alt="search-icon"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- header section -->
+      <section>
+
+
+<!--        <div id="login-info" hidden=true>
+  <h2>Login info:</h2>
+  {% if user_data %}
+    <dl>
+      <dt>Name</dt><dd>{{ user_data['name'] }}</dd>
+      <dt>Email</dt><dd>{{ user_data['email'] }}</dd>
+      <dt>Last 10 visits</dt><dd>
+    {% for time in times %}
+          <p>{{ time['timestamp'] }}</p>
+        {% endfor %} </dd>
+    </dl>
+  {% elif error_message %}
+    <p>Error: {{ error_message }}</p>
+  {% endif %}
+</div> -->
+
+
+   {% block content %}
+
+        
+      
+
+
+
+
+    {% endblock %}
+
+
+        <!-- footer wrapper -->
+        <hr>
+
+    <section style="padding-top:8px;bottom: 0px;padding-bottom: 20px;" class="footer-wrapper pad-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                  <!--   <ul class="social-icons-two light list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="icon-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="icon-linedin"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="icon-instagram"></i></a></li>
+                    </ul> -->
+                    <p class="copyright-text">Copyrights © 2022 <b >Newton Wiki </b><br> 
+                      <a href="tel:+254741590330"><b>Tel</b> (+254) 716 434 058</a> <br><!-- All Rights Reserved --> 
+
+                     <b><a  href="">Terms & Conditions</a></b> 
+
+
+                        <!--Powerd by <img style="width:80px" src="https://gethsemanebaptistchurch.org/wp-content/uploads/2019/05/youtube-logo-png-transparent-image-5.png"> -->
+
+                       <!-- <img style="width:50px" src="{{ url_for('static', filename='img/googlelogo.png') }}"> -->
+                     </p>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer-wrapper -->
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("May 12, 2022 00:00:00").getTime();
+
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+  
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+  
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "D " + hours + "H "
+  + minutes + "M " + seconds + "S ";
+  
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(countdownfunction);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+
+
+<script type="text/javascript">
+const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["CoolWebMoments","Google Sample Projects", "Python Applications","Tutorials"];
+
+// The Book of Secret Knowledge 
+
+const typingDelay = 200;
+const erasingDelay = 100;
+const newTextDelay = 2000; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+</script>
+
+
+
+
+<script src="{{ url_for('static', filename='js/you.js') }}"></script>
+
+<!-- SCRIPTS -->
+<script src="{{ url_for('static', filename='js/jquery-1.12.3.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+
+  </body>
+</html>

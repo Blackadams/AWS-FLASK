@@ -1,0 +1,130 @@
+{% extends "base_3.html" %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+  <section class="blog-post style-six pad-75">
+        <div class="container">
+          <!--   <div class="row">
+                <div class="col-sm-12 text-center page-title mb75"><h2></h2></div>
+            </div>
+ -->
+
+
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                   <div style="padding: 30px;" id="outer">
+  <div id="inner">
+    <h1 style="font-size: 28px">{{ post.title }}</h1>
+
+
+</div>
+</div>
+
+
+
+               
+
+                    <article class="has-animation" data-delay="0">
+                        <div class="entry-media float-right"><img style="height:181.3px;" src="{{ url_for('static', filename='img/cup.jpg') }}" alt="post-image"></div>
+
+                        <div class="entry-meta-content float-left">
+
+
+                            <h2 class="entry-title"><a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+
+
+                            <span class="entry-meta">Posted <span>- </span>
+
+                             {{ post.date_posted }}
+
+
+
+                           <!--  {{ post.date_posted.strftime('%Y-%m-%d') }} --> by  <a style="" class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }} </a></span>
+
+                           
+
+
+
+                            <p>{{post.content}}</p>
+
+
+                            <div class="entry-content-bottom">
+
+                            
+
+
+                              
+                              {% if post.author == current_user %}
+
+          <a style="text-decoration: none;font-size: 13px;border: 3px solid #1c4646;padding:5px;border-radius:6px" href="{{ url_for('posts.update_post', post_id=post.id) }}" class="entry-read-more">
+              <span></span>Update Post</a>
+
+
+         <button style="border: 3px solid #1c4646;padding:5px;border-radius:6px" type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+         {% else %}
+
+  <!--            <a style="text-decoration: none;font-size: 13px;border: 3px solid #1c4646;padding:5px;border-radius:6px" href="{{ url_for('posts.add_to_cart', post_id=post.id) }}" class="entry-read-more">
+              <span></span>add to cart</a>
+
+
+                                <ul class="social-share list-inline">
+                                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                               
+                                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+
+                                </ul>
+                                <span class="entry-meta bold float-right">Share</span> -->
+                            </div>
+
+         {% endif %}
+                        
+
+
+                            
+                            </div>
+                        </div>
+
+                            
+                    </article>  
+
+                                                  
+
+                </div>
+            </div>
+
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          
+        </div>
+        <div class="modal-footer">
+        <!--   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <form action="{{ url_for('posts.delete_post', post_id=post.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

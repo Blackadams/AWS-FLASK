@@ -1,0 +1,162 @@
+
+{% extends "base_3.html" %}
+{% block content %}
+
+    <main class="ytc-main ytc-home">
+
+    	      <section class="lb-grid ytc-home-hero">
+        <div
+          class="lb-grid__cell lb-grid__cell--span-4 lb-grid__cell--md-span-12 lb-grid__cell--sm-span-12 ytc-home-hero__text-column"
+        >
+          <div>
+
+          	 {% for post in posts.items %}
+
+            <h1 style="font-size:26px"
+              class="lb-font-display-2 lb-margin-bottom-m--bp-auto ytc-home-hero__heading"
+            ><a style="text-decoration: none;" href="{{ url_for('posts.post', post_id=post.id) }}">
+             {{ post.title | title }} </a> <!-- <span style="font-size:24px;">wiki </span> -->
+               <br>
+             <!--  <span style="font-size:28px;color: #007bff" class=" typed-text"></span><span class="cursor">&nbsp;</span> -->
+
+            </h1>
+
+            <small class="text-muted"> Private Blog <a href="{{ url_for('users.user_posts', username=post.author.username) }}"> For Members Only | <span style="color: #c4302b">Membership closed </span> <!-- {{ post.author.username| capitalize }} --> </a> <!-- last seen {{ moment(post.date_posted).fromNow() }}  --></small>   <br>
+
+
+             <br>
+
+
+             <p class="copyright-text">
+ 			       {{ post.content }}.  <a style="font-size: 16px;color: #355e3b;" href=""><!-- 👅🍑💦 --></a> &nbsp;
+             <!--  <a style="font-size: 16px;color: #355e3b;" href="">#🍑👙 #👉👌</a> -->
+              </p> <br>
+
+
+<!-- 
+             <p style="text-decoration:underline;" class="copyright-text">
+              <a  href="{{ url_for('main.fe') }}">Gentlemen, here is my check for Ksh 400 plus 100 for postage and handling. Please send me an invite today.</a>
+              
+              </p> 
+ -->
+             
+
+<!-- 
+            <br>
+ -->
+       
+           <!--  <a style="font-size: 18px;color: #007bff;" href="">Continue with Google </a> -->
+            <a style="font-size: 18px;text-decoration: line-through;" href="{{ url_for('main.fe') }}">someone's gonna have a fit</a>
+
+            <img style="color:#065fd4f ;" src="{{ url_for('static', filename='img/arrow-right.svg') }}">
+
+
+            {% endfor %}
+
+            <br> <br><br>
+
+<!-- <div class="col-sm-12 text-center"> -->
+
+      {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+
+      {% if posts.page == page_num %}
+          <a style="text-decoration: none;font-size: 20px;border: 3px solid #333;padding: 6px;border-radius:6px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+      {% else %}
+          <a style="text-decoration: none;font-size: 20px;border: 3px solid #333;padding: 6px;border-radius:6px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+      {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+<!--   </div> -->
+
+
+          
+          </div>
+        </div>
+        <div
+          class="lb-grid__cell lb-grid__cell--offset-5-span-7 lb-grid__cell--md-span-12 lb-grid__cell--sm-span-12 ytc-home-hero__video-column"
+        >
+          <div
+            class="ytc-home-hero__video-container"
+            lb-auto-init="YTCHomeVideo"
+          >
+     <!--      <img class="ytc-home-hero__video" src="https://64.media.tumblr.com/1eafa8df04616ec7b012b02cf02f91b3/tumblr_ptn4awyqBb1roqdm2_540.gifv"> -->
+   <!--   <img class="ytc-home-hero__video" src="{{ url_for('static', filename='img/nothing.jpg') }}">
+ -->
+     <img class="ytc-home-hero__video" src="{{ url_for('static', filename='img/room.jpeg') }}">
+        <!--     <video
+              class="ytc-home-hero__video"
+              src="{{ url_for('static', filename='img/YT_Creators_Montage_SSA_V9_COLOR.mp4') }}"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+ -->
+           
+
+
+         <!--    <button
+              class="lb-button lb-button--overlay lb-button--square lb-button--filled ytc-home-hero__mute"
+              aria-label="Mute Video"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="lb-icon ytc-home-hero__mute-icon"
+                aria-hidden="true"
+              >
+                <use href="#volume-off"></use>
+              </svg>
+            </button> -->
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+
+     </main>
+
+
+{% endblock content %}
+
+
+<!-- An easy dating solution that allows members alike to form deep connection on blind dates with the help of 36 Questions that could supposedly make any two people fall in love . -->
+
+<!-- for the first time. Kissing my most secret place, for the first time. His tongue flicked over the now throbbing little bud. I nearly lost it right then and there. But he took his time. Tested the waters. He kissed, licked, sucked, and touched my pussy like it was precious to him. -->
+
+<!-- Too shy to tell me where you're most sensitive? Take my hand in yours, show me where you're most sensitive. Take my hand to the place where I can exactly how turned on you are. Then I'll bury my fingers in you just to pull them out when you get close. Leaving you sloppy mess.  -->
+
+
+<!-- maria went home happy telling her mother about how she earned 5k by climbing a tree. Her mom responded they just wanted to see your panties! maria replied , see mom i was smart i took them off -->
+
+<!-- my girl: *sends some blunt coin*
+me: see that's why i wanna fuck you all the time. -->
+
+
+<!-- I love sex  it's always in mind and I love women like women body is it's so beautiful and I love having sex with beautiful women 
+And I love women who love sex -->
+
+
+<!-- Are you dry on texts😬 or feel boring when you text someone🤧 so get over here and try our quotes or tips and tricks 😏 and so many more  -->
+
+
+<!-- 🥀°•I'm shy. I'm moody. I'm not good at everything. I'm jealous. I cry a lot. I'm emotional. I'm sensitive. I'm boring. I'm introvert. I can trust people easily, But at some point I'm loyal. I'm straight forward. I have my own personality. I can handle my own situation.
+
+I know how to love, respect, care someone I'm imperfect. But i can accept myself as i'm》❤️•° -->
+
+<!-- We spend all our life in our head make sure it's a nice place to live. -->
+
+<!-- Congratulations! You have been invited to receive nothing. Absolutely nothing! This is ultimate in nothing. Open the package but be aware - nothing will happen. Nothing is full of surprises & renews each month unless you decide to cancel. (But who would do such a thing?). -->
+
+<!-- Funny, intriguing, heartfelt, cringeworthy—it’s remarkable where simple, small questions can lead us. We’re digital storytellers that bring real people together for unscripted moments that are often hilarious and always insightful -->
+<!-- 
+God gave you everything except my number Boo -->
+            <!-- i'm so ready to get cute & get ate out ... i mean go out to eat -->
+
+            <!--  <a style="font-size: 18px;color: #007bff;" href="">I'd like it now </a> -->

@@ -1,0 +1,153 @@
+{% extends "base_3.html" %}
+{% block content %}
+
+  <section class="blog-post style-six pad-75">
+
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-sm-12 text-center page-title mb75"><h2></h2></div>
+            </div> -->
+
+
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+
+<div style="padding-top: 30px;padding-bottom: 20px;" id="outer">
+  <div class="text-center" id="inner">
+    <h1 style="font-size: 28px">posts by {{ user.username }} ({{ posts.total }})</h1>
+
+   
+
+
+</div>
+</div>
+
+
+
+
+      
+
+
+
+
+
+<!-- 
+<div id="outer">
+  <div id="inner">
+ -->
+
+ 
+
+
+  <section class="blog-post style-six pad-75">
+        <div class="container">
+          <!--   <div class="row">
+                <div class="col-sm-12 text-center page-title mb75"><h2></h2></div>
+            </div> -->
+
+
+   {% for post in posts.items %}
+
+            <div class="row">
+                <div class="col-sm-12">
+
+   <article class="has-animation" data-delay="0">
+                        <div class="entry-media float-right"><img style="height:181.3px;" src="{{ url_for('static', filename='img/cup.jpg') }}" alt="post-image"></div>
+                        <div class="entry-meta-content float-left">
+
+
+
+
+
+
+                            <h2 class="entry-title"><a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+
+
+                            <span class="entry-meta">Posted <span>- </span>
+
+                             {{ post.date_posted }}
+
+
+
+                            <!-- {{ post.date_posted.strftime('%Y-%m-%d') }} --> by <a style="" class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ user.username }} </a></span>
+
+                            <p>{{post.content | truncate(50) }}</p>
+
+
+                              <div class="entry-content-bottom">
+
+
+                              <!--   <a href="{{ url_for('posts.post', post_id=post.id) }}" class="entry-read-more"><span></span>Read</a> -->
+
+                                   {% if user != current_user %}
+           
+                    <a style="border: 3px solid #1c4646;padding: 5px;border-radius: 10px;" href="{{ url_for('main.send_message',
+                                        recipient=user.username) }}">
+                      <span></span> message
+                    </a>
+          
+                {% endif %}
+
+
+                                <ul class="social-share list-inline">
+                                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <!-- <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin-square"></i></a></li> -->
+                                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                </ul>
+                                <span class="entry-meta bold float-right">Share</span>
+                            </div>
+                        </div>
+                        
+                    </article>  
+
+
+
+</div>
+<!-- </div> -->
+</div>
+
+
+
+    {% endfor %}
+
+              {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                  {% if page_num %}
+                    {% if posts.page == page_num %}
+            <!--         <div class="row">
+                        <div class="d-flex justify-content-center col-sm-12 pad-top-50">
+                            <div class="button-4">
+                                 <div class="eff-4"></div> -->
+                                     <a style="text-decoration: none;font-size: 25px;border: 3px solid #1c4646;padding: 6px;border-radius:6px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+                                <!-- </div>
+                            </div>
+                        </div> -->
+                    {% else %}
+
+<!-- 
+                    <div class="row">
+                        <div class="d-flex justify-content-center col-sm-12 pad-top-50">
+                            <div class="button-4">
+                                 <div class="eff-4"></div> -->
+                      <a style="text-decoration: none;font-size: 25px;border: 3px solid #1c4646;padding:6px;border-radius:6px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+                     <!--   </div>
+                            </div>
+                        </div> -->
+                    {% endif %}
+                  {% else %}
+                    ...
+                  {% endif %}
+                {% endfor %}
+
+
+                </div>
+</div>
+</section>
+</div>
+
+</div>
+</div></section>
+{% endblock content %}

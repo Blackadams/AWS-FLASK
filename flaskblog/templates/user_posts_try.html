@@ -1,0 +1,149 @@
+
+{% extends "base_3.html" %}
+{% block content %}
+
+    <main class="ytc-main ytc-home">
+
+    	<section class="lb-grid ytc-home-hero">
+        <div
+          class="lb-grid__cell lb-grid__cell--span-4 lb-grid__cell--md-span-12 lb-grid__cell--sm-span-12 ytc-home-hero__text-column"
+        >
+          <div>
+            
+
+         {% for post in posts.items %} 	
+
+            <h1 
+              class="lb-font-display-2 lb-margin-bottom-m--bp-auto ytc-home-hero__heading"
+            ><a style="text-decoration: none;" href="{{ url_for('posts.post', post_id=post.id) }}">
+             {{ post.title | capitalize }} </a> <!-- <span style="font-size:24px;">wiki </span> -->
+               <br>
+             <!--  <span style="font-size:28px;color: #007bff" class=" typed-text"></span><span class="cursor">&nbsp;</span> -->
+
+            </h1>
+
+            <small class="text-muted">Posted by  <a href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username| capitalize }} </a> on {{ post.date_posted.strftime('%Y-%m-%d') }}</small> <br>
+
+
+             <br>
+
+
+             <p class="copyright-text">
+ 			       {{ post.content }}
+              </p> <!-- 
+              <a style="font-size: 16px;color: #007bff;" href="">#UberEatsOffers</a>
+              <a style="font-size: 16px;color: #007bff;" href="">#From3PM</a> -->
+              
+
+     
+            <br>
+            <hr>
+            <br>
+
+      {% endfor %}
+
+       
+              {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                  {% if page_num %}
+                    {% if posts.page == page_num %}
+            <!--         <div class="row">
+                        <div class="d-flex justify-content-center col-sm-12 pad-top-50">
+                            <div class="button-4">
+                                 <div class="eff-4"></div> -->
+                                     <a style="text-decoration: none;font-size: 20px;border: 3px solid #333;padding: 6px;border-radius:6px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+                                <!-- </div>
+                            </div>
+                        </div> -->
+                    {% else %}
+
+<!-- 
+                    <div class="row">
+                        <div class="d-flex justify-content-center col-sm-12 pad-top-50">
+                            <div class="button-4">
+                                 <div class="eff-4"></div> -->
+                      <a style="text-decoration: none;font-size: 20px;border: 3px solid #333;padding:6px;border-radius:6px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+                     <!--   </div>
+                            </div>
+                        </div> -->
+                    {% endif %}
+                  {% else %}
+                    ...
+                  {% endif %}
+                {% endfor %}
+
+  <br><br>
+
+    
+
+           <!--  <a style="font-size: 18px;color: #007bff;" href="">Continue with Google </a>
+
+            <img style="color:#065fd4f ;" src="{{ url_for('static', filename='img/arrow-right.svg') }}">
+ -->
+
+         
+
+
+
+
+          
+          </div>
+        </div>
+
+
+
+        <div
+          class="lb-grid__cell lb-grid__cell--offset-5-span-7 lb-grid__cell--md-span-12 lb-grid__cell--sm-span-12 ytc-home-hero__video-column"
+        >
+
+         <div
+            class="ytc-home-hero__video-container"
+            lb-auto-init="YTCHomeVideo"
+          >
+          <!-- <img class="ytc-home-hero__video" src="{{ url_for('static', filename='img/lezdom4c-5.gif') }}"> -->
+            <video
+              class="ytc-home-hero__video"
+              src="{{ url_for('static', filename='img/YT_Creators_Montage_SSA_V9_COLOR.mp4') }}"
+
+
+              
+
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+
+           
+
+
+         <!--    <button
+              class="lb-button lb-button--overlay lb-button--square lb-button--filled ytc-home-hero__mute"
+              aria-label="Mute Video"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="lb-icon ytc-home-hero__mute-icon"
+                aria-hidden="true"
+              >
+                <use href="#volume-off"></use>
+              </svg>
+            </button> -->
+          </div>
+
+     
+
+
+        </div>
+
+      </section>
+
+       
+
+
+     </main>
+
+
+{% endblock content %}
+
+
+<!-- An easy dating solution that allows members alike to form deep connection on blind dates with the help of 36 Questions that could supposedly make any two people fall in love . -->

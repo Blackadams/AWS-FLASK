@@ -1,0 +1,95 @@
+{% extends "base_3.html" %}
+{% block content %}
+    <section class="blog-post style-six pad-75">
+
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-sm-12 text-center page-title mb75"><h2></h2></div>
+            </div> -->
+
+            <div class="row">
+                <div class="col-sm-12">
+
+
+ <div style="padding-top: 20px;" id="outer">
+  <div class="text-center" id="inner">
+    <h1 style="font-size: 28px">Account</h1>
+
+
+</div>
+</div>
+
+<div  id="outer">
+<div id="inner">
+
+  
+
+
+        <form style="font-size:15px;padding-top:20px" method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset style="border:3px solid #1c4646;padding: 30px;border-radius: 5px;" class="form-group">
+        
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg",style="border:0;border-bottom:1px #aaa solid") }}
+                    {% endif %}
+                </div><br>
+
+                
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg",style="border:0;border-bottom:1px #aaa solid") }}
+                    {% endif %}
+                </div><br>
+
+
+
+
+
+                <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div><br>
+          
+
+            <div class="form-group">
+                <a style="text-decoration: none;font-size: 20px" class="title width-100 justify-content-between align-items-center centra-medium-faq-alt c-dino-kale padding-right-5px padding-right-md-none" href="">
+
+                
+                {{ form.submit(style="background-color:#fff;border: 3px solid #1c4646;width:100%;text-align: center;padding: 6px;border-radius:5px")}}
+                </a>
+            </div>
+              </fieldset>
+
+        </form>
+
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+{% endblock content %}

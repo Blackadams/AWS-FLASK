@@ -1,0 +1,98 @@
+{% extends "base_3.html" %}
+{% block content %}
+   
+
+ <main class="ytc-main ytc-home">
+
+              <section class="lb-grid ytc-home-hero">
+        <div
+          class="lb-grid__cell lb-grid__cell--span-4 lb-grid__cell--md-span-12 lb-grid__cell--sm-span-12 ytc-home-hero__text-column"
+        >
+          <div>
+
+           
+
+            <h1 
+              class="lb-font-display-2 lb-margin-bottom-m--bp-auto ytc-home-hero__heading"
+            ><a style="text-decoration: none;" href="">
+
+             Page Not Found (404)</a> <!-- <span style="font-size:24px;">wiki </span> -->
+               <br>
+             <!--  <span style="font-size:28px;color: #007bff" class=" typed-text"></span><span class="cursor">&nbsp;</span> -->
+
+            </h1>
+
+
+             <br>
+
+
+             <p class="copyright-text">
+                   That page does not exist. Please try a different location
+              </p> <!-- 
+              <a style="font-size: 16px;color: #007bff;" href="">#UberEatsOffers</a>
+              <a style="font-size: 16px;color: #007bff;" href="">#From3PM</a> -->
+
+
+            <br>
+
+       
+           <!--  <a style="font-size: 18px;color: #007bff;" href="">Continue with Google </a> -->
+            <a style="font-size: 18px;color: #007bff;" href="">Back home </a>
+
+            <img style="color:#065fd4f ;" src="{{ url_for('static', filename='img/arrow-right.svg') }}">
+
+
+            <br> <br><br>
+
+          
+          </div>
+        </div>
+        <div
+          class="lb-grid__cell lb-grid__cell--offset-5-span-7 lb-grid__cell--md-span-12 lb-grid__cell--sm-span-12 ytc-home-hero__video-column"
+        >
+          <div
+            class="ytc-home-hero__video-container"
+            lb-auto-init="YTCHomeVideo"
+          >
+     <!--      <img class="ytc-home-hero__video" src="https://64.media.tumblr.com/1eafa8df04616ec7b012b02cf02f91b3/tumblr_ptn4awyqBb1roqdm2_540.gifv"> -->
+     <img class="ytc-home-hero__video" src="{{ url_for('static', filename='img/blunt3.gif') }}">
+           <!--  <video
+              class="ytc-home-hero__video"
+              src="https://kstatic.googleusercontent.com/files/703f7e133bc7c37b11bcb64077fb1c6a6d90fd5ed17e232357ffe50fa366a1072ff1d4cc29efaff021b25c50f7a34e55337573fe22d2b9be952cca36a13f4713"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+ -->
+           
+
+
+         <!--    <button
+              class="lb-button lb-button--overlay lb-button--square lb-button--filled ytc-home-hero__mute"
+              aria-label="Mute Video"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="lb-icon ytc-home-hero__mute-icon"
+                aria-hidden="true"
+              >
+                <use href="#volume-off"></use>
+              </svg>
+            </button> -->
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+
+     </main>
+
+
+
+
+{% endblock content %}
