@@ -51,24 +51,24 @@ moment = Moment()
 
 
 def create_app(config_class=Config):
-    app = Flask(__name__)
-    app.config.from_object(Config)
+    application = Flask(__name__)
+    application.config.from_object(Config)
 
-    db.init_app(app)
-    bcrypt.init_app(app)
-    login_manager.init_app(app)
-    mail.init_app(app)
-    moment.init_app(app)
+    db.init_app(application)
+    bcrypt.init_app(application)
+    login_manager.init_app(application)
+    mail.init_app(application)
+    moment.init_app(application)
 
     from flaskblog.users.routes import users
     from flaskblog.posts.routes import posts
     from flaskblog.main.routes import main
     from flaskblog.errors.handlers import errors
-    app.register_blueprint(users)
-    app.register_blueprint(posts)
-    app.register_blueprint(main)
-    app.register_blueprint(errors)
+    application.register_blueprint(users)
+    application.register_blueprint(posts)
+    application.register_blueprint(main)
+    application.register_blueprint(errors)
 
-    return app
+    return application
 
-    app.jinja_env.globals['momentjs'] = momentjs
+    application.jinja_env.globals['momentjs'] = momentjs
