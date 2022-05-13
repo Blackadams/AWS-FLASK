@@ -42,33 +42,3 @@ def fe():
   return redirect(url_for('main.home'))
 
 
-
-@main.route("/about")
-def about():
-    return render_template('about.html', title='About')
-
-
-@main.route("/rolled/blunt/")
-def blunt():
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    return render_template('blunt.html', title='Blunt', **locals())
-
-
-
-@main.route("/user/wallet/")
-def wallet():
-    form = AmountForm()
-
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    return render_template('wallet.html', title='Blunt', **locals())
-
-
-
-
-@main.route("/h")
-def h():
-    return render_template('overview.html', title='About')
-
-
